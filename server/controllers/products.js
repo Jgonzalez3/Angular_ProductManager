@@ -15,13 +15,13 @@ module.exports = ()=>{
         createProduct: (req, res)=>{
             newProduct = new Product({title: req.body.title, price: req.body.price, image: req.body.image});
             newProduct.save((err)=>{
-                err =err ? console.log("Create ERROR") & res.json({message:"CREATE ERROR"}, {error: err}): res.json({message: "Success"})
+                err =err ? console.log("Create ERROR") & res.json({message:"CREATE ERROR", error: err}): res.json({message: "Success"})
             })
         },
         updateProduct: (req, res)=>{
             var prodId = req.params.id;
             Product.findByIdAndUpdate(prodId, {title: req.body.title, price: req.body.price, image: req.body.image}, (err)=>{
-                err=err ? console.log("UPDATE ERROR", err) & res.json({message: "Update Error"}): res.json({message: "Success"});
+                err=err ? console.log("UPDATE ERROR", err) & res.json({message: "Update Error", error:err}): res.json({message: "Success"});
             })
         },
         deleteProduct: (req, res)=>{
