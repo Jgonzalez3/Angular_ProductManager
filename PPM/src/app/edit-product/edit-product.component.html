@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div *ngIf="product" class="col border-dark rounded" style="padding: 25px;">
+      <h2>{{title}}</h2><br>
+      <form (submit)= "updateProduct()">
+        <h6 *ngIf="product.title.length < 4" class="text-danger">Title must be at least 4 characters</h6>
+        <div class="form-group row">
+          <h3 class="col-sm-4">Title</h3>
+          <div class="col-sm-8">
+            <input class="form-control" type="text" required minlength="4" name="product.title" [(ngModel)]="product.title" value="{{product.title}}">
+          </div>
+        </div>
+        <h6 *ngIf="!product.price" class="text-danger">Price is required</h6>
+        <div class="form-group row">
+          <h3 class="col-sm-4">Price</h3>
+          <div class="col-sm-8">
+            <input class="form-control" type="number" min="0" step=".01" placeholder="1.00" required name="product.price" [(ngModel)]="product.price" value="{{product.price}}">
+          </div>
+        </div>
+        <div class="form-group row">
+          <h3 class="col-sm-4"> Image Url</h3>
+          <div class="col-sm-8">
+            <input class="form-control" type="text" name="product.image" [(ngModel)]="product.image" value="{{product.image}}">
+          </div>
+        </div>
+        <button class="btn btn-danger float-right" (click)="deleteProduct()">Delete</button>
+        <button class="btn btn-success float-right" type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+</div>
+

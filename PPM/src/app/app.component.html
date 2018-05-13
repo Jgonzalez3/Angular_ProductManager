@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>PPM - Project Product Management</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 text-center">
+      <button class="btn btn-link" routerLink="" >Home</button>
+      <button class="btn btn-link" [routerLink] = "['/products']">Product List</button>
+      <button class="btn btn-link" [routerLink]="['/products/new']">Product Creation</button>
+    </div>
+  </div>
+</div>
+<br>
+<router-outlet></router-outlet>
