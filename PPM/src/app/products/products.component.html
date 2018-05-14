@@ -4,7 +4,7 @@
       <h2>{{title}}</h2>
       <div *ngFor="let p of products" class="border border-dark col-sm-5.5 d-sm-inline-block" style="margin: 5px; padding: 20px;">
         <img *ngIf="p.image" [src]="p.image" alt="{{p.title}} image" width="175" height="175">
-        <img *ngIf="!p.image" src="http://www.svusbc.com/wp-content/uploads/2015/10/image-coming-soon.png" alt="{{p.title}} image" width="200" height="200">
+        <img *ngIf="!p.image" src="http://www.svusbc.com/wp-content/uploads/2015/10/image-coming-soon.png" alt="{{p.title}} image" width="175" height="175">
         <h4>{{p.title}}</h4>
         <h4>${{p.price.toFixed(2)}}</h4>
         <button class="btn btn-dark col-6" routerLink='edit/{{p._id}}'>Edit</button>
