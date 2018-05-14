@@ -20,7 +20,7 @@ module.exports = ()=>{
         },
         updateProduct: (req, res)=>{
             var prodId = req.params.id;
-            Product.findByIdAndUpdate(prodId, {title: req.body.title, price: req.body.price, image: req.body.image}, (err)=>{
+            Product.findByIdAndUpdate(prodId, {title: req.body.title, price: req.body.price, image: req.body.image}, {runValidators: true} , (err)=>{
                 err=err ? console.log("UPDATE ERROR", err) & res.json({message: "Update Error", error:err}): res.json({message: "Success"});
             })
         },
