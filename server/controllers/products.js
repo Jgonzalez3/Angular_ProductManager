@@ -3,13 +3,13 @@ module.exports = ()=>{
     return{
         index: (req, res)=>{
             Product.find({}, (err, products)=>{
-                err=err ? console.log("ERROR ALL:", err) & res.json({message: "INDEX ERROR"}): res.json({message: "Success", products: products});
+                err=err ? console.log("ERROR ALL:", err) & res.json({message: "INDEX ERROR", error: err}): res.json({message: "Success", products: products});
             })
         },
         product: (req, res)=>{
             var prodId = req.params.id
             Product.findById(prodId, (err, product)=>{
-                err=err ? console.log("ERROR THIS Product", err) & res.json({message: "Product ERROR"}): res.json({message: "Success", product: product});
+                err=err ? console.log("ERROR THIS Product", err) & res.json({message: "Product ERROR", error:err}): res.json({message: "Success", product: product});
             })
         },
         createProduct: (req, res)=>{
@@ -28,7 +28,7 @@ module.exports = ()=>{
             var prodId = req.params.id;
             console.log(prodId);
             Product.deleteOne({_id: prodId}, (err)=>{
-                err=err ? console.log("ERRORS Remove", err) & res.json({message: "Delete error"}): res.json({message: "Success"})
+                err=err ? console.log("ERRORS Remove", err) & res.json({message: "Delete error", error:err}): res.json({message: "Success"})
             })
         }
     }
