@@ -31,6 +31,7 @@ export class EditProductComponent implements OnInit {
       console.log("Data Product", data);
       this.product = data['product'];
       console.log(this.product);
+      console.log("Errors", data['error']);
     })
   }
   updateProduct(){
@@ -39,6 +40,7 @@ export class EditProductComponent implements OnInit {
       let observable = this._httpService.editProduct(this.paramId, this.product);
       observable.subscribe(data=>{
       console.log("Update Data", data);
+      console.log("Errors", data['error']);
     })
     setTimeout(() => {
       this.redirectProducts()
@@ -49,6 +51,7 @@ export class EditProductComponent implements OnInit {
     let observable = this._httpService.deleteProduct(this.paramId);
     observable.subscribe(data=>{
       console.log("Delete Data", data);
+      console.log("Errors", data['error']);
     })
     this.redirectProducts();
   }

@@ -20,12 +20,14 @@ export class ProductsComponent implements OnInit {
     observable.subscribe(data =>{
       console.log("Products Data", data);
       this.products = data['products'];
+      console.log("Errors", data['error']);
     })
   }
   deleteProduct(id){
     let observable = this._httpService.deleteProduct(id);
     observable.subscribe(data=>{
       console.log("Delete Data", data);
+      console.log("Errors", data['error']);
     })
     this.getProductsFromService();
   }

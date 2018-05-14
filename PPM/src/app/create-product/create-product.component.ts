@@ -23,6 +23,7 @@ export class CreateProductComponent implements OnInit {
       let observable = this._httpService.addProduct(this.newproduct);
       observable.subscribe(data=>{
       console.log("Create Data", data);
+      console.log("Errors", data['error']);
     })
     setTimeout(() => {
       this.redirectProducts()
